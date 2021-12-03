@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       <AppHeader />
       <Routes>
-        <Route path="/" element={<CreatePizza
+        <Route path="/pizza" element={<CreatePizza
           ingredients={ingredients}
           setIngredients={setIngredients}/>} />
         <Route path="/checkout" element={<Checkout ingredients={ingredients}/>} />
