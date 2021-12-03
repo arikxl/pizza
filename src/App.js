@@ -18,12 +18,7 @@ function App() {
     {
       img: cheese,
       title: "Cheese",
-      isOn: false
-    },
-    {
-      img: basil,
-      title: "Basil",
-      isOn: false
+      isOn: false,
     },
     {
         img: mushroom,
@@ -45,6 +40,11 @@ function App() {
         title: "Tomato",
         isOn: false
     },
+    {
+      img: basil,
+      title: "Basil",
+      isOn: false
+    },
   ]);
 
   return (
@@ -54,8 +54,7 @@ function App() {
         <Route path="/" element={<CreatePizza
           ingredients={ingredients}
           setIngredients={setIngredients}/>} />
-        <Route path="/checkout" element={<Checkout />} />
-
+        <Route path="/checkout" element={<Checkout ingredients={ingredients}/>} />
       </Routes>
     </div>
   );

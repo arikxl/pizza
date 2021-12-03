@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion/dist/es/index';
-
+import { useNavigate } from 'react-router-dom';
 
 import pizzaBase from '../images/PizzaBase.png';
 
-
 const CreatePizza = ({ ingredients, setIngredients }) => {
 
+    const navigate = useNavigate();
     const changeIngredients = (e, ingredient) => {
         ingredient.isOn = e;
         let newIngredients = JSON.parse(JSON.stringify(ingredients));
@@ -19,11 +19,20 @@ const CreatePizza = ({ ingredients, setIngredients }) => {
                 <div className="pizza-container">
                     {ingredients.map((ingredient, index) => (
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{
-                                y: ingredient.isOn ? 100 : -100,
-                                opacity: ingredient.isOn ? 1 : 0,
-                            }}
+                            initial={ingredient.title === 'Cheese'
+                                ? { scale: 0 }
+                                : { opacity: 0 }}
+                            animate={
+                                ingredient.title !== 'Cheese' ?
+                                    {
+                                        y: ingredient.isOn ? 100 : -100,
+                                        opacity: ingredient.isOn ? 1 : 0
+                                    } :
+                                    {
+                                        scale: ingredient.isOn ? 1 : 0,
+                                        y: ingredient.isOn ? 100 : -100
+                                    }
+                            }
                             transition={{ duration: 1 }}
                             className="ingredients"
                         >
@@ -56,18 +65,11 @@ const CreatePizza = ({ ingredients, setIngredients }) => {
                         <span className="check-mark"></span>
                     </label>
                 ))}
-
-                {/* <label className="checkBox">
-                    Cheese
-                    <input type="checkbox"
-                        checked={ingredients["cheese"]}
-                        onChange={(e) => {
-                            changeIngredients(e.currentTarget.checked, "cheese")
-                        }} />
-                    <span className="checkMark"></span>
-                </label> */}
+                <button
+                onClick ={() => navigate('checkout')}
+                >Order Pizza!</button>
             </div>
-        </main>
+        </main >
     )
 }
 
