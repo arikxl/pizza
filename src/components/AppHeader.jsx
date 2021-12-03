@@ -1,18 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import PizzaLogo from '../images/pizzalogo.png';
 
 const AppHeader = () => {
 
     const navigate = useNavigate();
 
     return (
-        <header>
-            <h1 className="headline"
-            onClick={() =>navigate('')}
-            >Make Your Pizza</h1>
+        <header onClick={() =>navigate('')}>
+            <img src={PizzaLogo} alt="PizzaLogo" className="logo"/>
+            <h1 className="headline">Make Your Pizza</h1>
         </header>
-    )
-}
+    );
+};
 
-export default AppHeader
+export default AppHeader;

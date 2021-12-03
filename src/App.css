@@ -2,21 +2,30 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  color: #0d0628;
+  font-family: 'Courgette', cursive;
 }
 
 header {
+  background-color: #0d0628;
   padding: 10px 50px;
-  background-color: black;
+  cursor: pointer;
+  display:flex;
 }
 
 .headline{
-  color: yellow;
-  cursor: pointer;
+  color: #fccd3d;
+}
+
+.logo{
+  width: 30px;
+  margin-right: 20px;
 }
 
 main {
   display: flex;
-
+  padding: 20px 50px;
 }
 
 .flex1 {
@@ -93,25 +102,61 @@ main {
   left: 20%;
   bottom: .1%;
   color: #0d0628;
-  /* left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid #0d0628;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg); */
 }
 
 .checkout-container {
   display: flex;
+  padding: 10px 50px;
+}
+.checkout-container p{
+  font-size: 1.5rem;
+  color:forestgreen;
 }
 
 .checkout-msg{
   text-align: center;
+  color: #0d0628
+}
+.checkout-msg p{
+  color: #0d0628
 }
 
 .checkout-msg h1 {
   font-size: 2.5rem;
+}
+
+button {
+  margin: 30px 30px 0 0;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  background: #fccd3d;
+  border: 0px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 700px) {
+  header {
+    padding: 20px;
+  }
+  .headline{
+    font-size: 1.5rem;
+  }
+  main{
+    flex-direction: column;
+  }
+  button{
+    margin: 10px 10px 0 0 ;
+    font-size: .7rem;
+    padding: 10px 20px;
+  }
+  .checkout-container {
+    flex-direction: column;
+  }
+  .checkout-msg h1{
+    text-align: center;
+    font-size: 1.8rem;
+  }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import pizzaMan from '../images/PizzaMan.png'
+import pizzaMan from '../images/PizzaMan.png';
 
 const Checkout = ({ ingredients }) => {
 
@@ -16,13 +16,14 @@ const Checkout = ({ ingredients }) => {
                 {ingredients.map((ingredient, index) => {
                     return (
                         ingredient.isOn && (
-                            <p key={index}>{ingredient.title}</p>
+                            <p key={index}>✔ {ingredient.title}</p>
                         ))
                 })}
                 <button
                     onClick={() => setSuccess(true)}
                 >Confirm</button>
-                <button onClick={() => navigate('/')}>Go Back</button>
+                {!success && <button onClick={() => navigate('/')}>Go Back</button>}
+                
             </div>
 
             <div className="checkout-msg flex1">

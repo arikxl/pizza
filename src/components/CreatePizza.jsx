@@ -7,18 +7,19 @@ import pizzaBase from '../images/PizzaBase.png';
 const CreatePizza = ({ ingredients, setIngredients }) => {
 
     const navigate = useNavigate();
+
     const changeIngredients = (e, ingredient) => {
         ingredient.isOn = e;
         let newIngredients = JSON.parse(JSON.stringify(ingredients));
-        setIngredients(newIngredients)
-    }
+        setIngredients(newIngredients);
+    };
 
     return (
         <main>
             <div className="image flex1">
                 <div className="pizza-container">
                     {ingredients.map((ingredient, index) => (
-                        <motion.div
+                        <motion.div key={index}
                             initial={ingredient.title === 'Cheese'
                                 ? { scale: 0 }
                                 : { opacity: 0 }}
@@ -34,26 +35,15 @@ const CreatePizza = ({ ingredients, setIngredients }) => {
                                     }
                             }
                             transition={{ duration: 1 }}
-                            className="ingredients"
-                        >
+                            className="ingredients">
                             <img key={index} className="motion-ingredient"
                                 src={ingredient.img} alt={ingredient.title} />
                         </motion.div>
                     ))}
                     <img src={pizzaBase} alt="pizza base" className="pizza" />
-
-                    {/* {ingredients.map((ingredient, index) => (
-                        <img className="ingredients" key={index}
-                            src={ingredient.img} alt={ingredient.title} />
-                    ))}
-                    <img src={pizzaBase} alt="pizza base" className="pizza" /> */}
-
                 </div>
             </div>
             <div className="checkbox-container flex1">
-                {/* <input type="checkbox" name="cheese"
-                onChange={(e)=> changeIngredients(e.target.name)} />
-                <label htmlFor="cheese">Cheese</label> */}
                 {ingredients.map((ingredient, index) => (
                     <label className="checkbox" key={index}>
                         {ingredient.title}
@@ -70,7 +60,7 @@ const CreatePizza = ({ ingredients, setIngredients }) => {
                 >Order Pizza!</button>
             </div>
         </main >
-    )
-}
+    );
+};
 
-export default CreatePizza
+export default CreatePizza;
