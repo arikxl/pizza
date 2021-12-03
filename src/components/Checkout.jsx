@@ -22,7 +22,7 @@ const Checkout = ({ ingredients }) => {
                 <button
                     onClick={() => setSuccess(true)}
                 >Confirm</button>
-                {!success && <button onClick={() => navigate('/')}>Go Back</button>}
+                {!success && <button onClick={() => navigate('/pizza')}>Go Back</button>}
                 
             </div>
 

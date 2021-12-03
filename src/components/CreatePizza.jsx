@@ -56,7 +56,7 @@ const CreatePizza = ({ ingredients, setIngredients }) => {
                     </label>
                 ))}
                 <button
-                onClick ={() => navigate('checkout')}
+                onClick ={() => navigate('/checkout')}
                 >Order Pizza!</button>
             </div>
         </main >
