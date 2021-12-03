@@ -8,7 +8,7 @@ const AppHeader = () => {
     const navigate = useNavigate();
 
     return (
-        <header onClick={() =>navigate('')}>
+        <header onClick={() =>navigate('/pizza')}>
             <img src={PizzaLogo} alt="PizzaLogo" className="logo"/>
             <h1 className="headline">Make Your Pizza</h1>
         </header>
